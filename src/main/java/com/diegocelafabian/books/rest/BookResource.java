@@ -4,6 +4,7 @@ import com.diegocelafabian.books.dao.BookDAO;
 import com.diegocelafabian.books.data.Book;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -13,7 +14,7 @@ import javax.ws.rs.core.Response;
  */
 @Path("/book")
 @Produces("application/json;charset=utf-8")
-@Api(value = "book", description = "Book service")
+@Api(value = "book", description = "Library management service")
 public class BookResource {
 
     private BookDAO bookDAO;
@@ -23,15 +24,15 @@ public class BookResource {
     }
 
     @GET
-    @ApiOperation("list books")
+    @ApiOperation("Obtains a list of all books")
     public Response list() {
         return Response.ok(this.bookDAO.list()).build();
     }
 
     @GET
     @Path("/{id}")
-    @ApiOperation("get book")
-    public Response get(@PathParam("id") Long id) {
+    @ApiOperation("Obtains a book given its ID")
+    public Response get(@PathParam("id") @ApiParam("Book identifier") Long id) {
         Book book = this.bookDAO.get(id);
         
         if (book == null) {
@@ -43,8 +44,8 @@ public class BookResource {
 
     @POST
     @Consumes("application/json;charset=utf-8")
-    @ApiOperation("save book")
-    public Response save(Book book) {
+    @ApiOperation("Saves a book given its information")
+    public Response save(@ApiParam("Detailed book information") Book book) {
         this.bookDAO.save(book);
         
         return Response.ok().build();
@@ -52,8 +53,8 @@ public class BookResource {
 
     @DELETE
     @Path("/{id}")
-    @ApiOperation("delete book")
-    public Response delete(@PathParam("id") Long id) {
+    @ApiOperation("Deletes a book given its ID")
+    public Response delete(@PathParam("id") @ApiParam("Book identifier") Long id) {
         Book book = this.bookDAO.get(id);
         
         if (book == null) {
