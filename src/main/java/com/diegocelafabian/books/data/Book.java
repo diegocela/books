@@ -1,7 +1,8 @@
-package diego.cela.fabian.books.data;
+package com.diegocelafabian.books.data;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 import com.wordnik.swagger.annotations.ApiModel;
 
 /**
@@ -15,8 +16,9 @@ public class Book {
 	@Id
     private Long id;
 
-	private String name;
+	private String title;
     
+	@Index
     private String author;
     
     private int publicationYear;
@@ -27,10 +29,10 @@ public class Book {
 		super();
 	}
 
-	public Book(Long id, String name, String author, int publicationYear, String genre) {
+	public Book(Long id, String title, String author, int publicationYear, String genre) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.title = title;
 		this.author = author;
 		this.publicationYear = publicationYear;
 		this.genre = genre;
@@ -44,12 +46,12 @@ public class Book {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String title) {
+		this.title = title;
 	}
 
 	public String getAuthor() {
@@ -78,7 +80,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", publicationYear=" + publicationYear
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", publicationYear=" + publicationYear
 				+ ", genre=" + genre + "]";
 	}
     

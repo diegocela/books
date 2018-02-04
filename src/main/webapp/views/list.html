@@ -1,0 +1,57 @@
+<h3>LIBRARY</h3>
+
+<!--<div ng-repeat="item in list">
+		<a href="/#/{{item.id}}">{{item.title}} - {{item.author}}</a><button ng-click="delete(item.id)">Delete</button>
+</div>-->
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th></th>
+	</tr>
+	
+	<tr ng-repeat="item in list">
+    	<td>
+    		<a href="/#/{{item.id}}">{{item.title}}</a>
+    	</td>
+    	
+    	<td>{{item.author}}</td>
+    	
+    	<td>
+    		<button ng-click="delete(item.id)">Delete</button>
+    	</td>
+  	</tr>
+</table>
+
+<h3>NEW BOOK</h3>
+
+<div>    
+    <div>
+        <label for="title">Title:</label>
+        <br>
+        <input id="title" ng-model="form.title"/>
+    </div>
+    
+    <div>
+        <label for="author">Author:</label>
+        <br>
+        <input id="author" ng-model="form.author"/>
+    </div>
+    
+    <div>
+        <label for="publicationYear">Publication year:</label>
+        <br>
+        <input id="publicationYear" ng-model="form.publicationYear"/>
+    </div>
+    
+    <div>
+        <label for="genre">Genre:</label>
+        <br>
+        <input id="genre" ng-model="form.genre"/>
+    </div>
+    
+    <br>
+    
+    <button ng-click="save()">Save</button>
+</div>

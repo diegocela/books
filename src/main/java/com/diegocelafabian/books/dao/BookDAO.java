@@ -1,13 +1,13 @@
-package diego.cela.fabian.books.dao;
+package com.diegocelafabian.books.dao;
 
+import com.diegocelafabian.books.data.Book;
 import com.googlecode.objectify.ObjectifyService;
-import diego.cela.fabian.books.data.Book;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 /**
- *  @author Diego Cela
+ * @author Diego Cela
  */
 public class BookDAO {
 
@@ -19,7 +19,7 @@ public class BookDAO {
     public List<Book> list() {
         LOGGER.info("Retrieving list of beans");
         
-        return ObjectifyService.ofy().load().type(Book.class).list();
+        return ObjectifyService.ofy().load().type(Book.class).order("author").list();
     }
 
     /**

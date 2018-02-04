@@ -11,4 +11,5 @@ tmp/
 *.bak
 *.swp
 *~.nib
-.springBeans 
+.springBeans
+local_db.bin

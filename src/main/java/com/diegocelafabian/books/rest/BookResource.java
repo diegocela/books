@@ -1,7 +1,7 @@
-package diego.cela.fabian.books.rest;
+package com.diegocelafabian.books.rest;
 
-import diego.cela.fabian.books.dao.BookDAO;
-import diego.cela.fabian.books.data.Book;
+import com.diegocelafabian.books.dao.BookDAO;
+import com.diegocelafabian.books.data.Book;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
